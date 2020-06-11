@@ -1,0 +1,1352 @@
+<body id="interaction" class="common-structure">
+    <header>
+        <button id="returnToMenu" onclick="exitModule();">
+            <img src="images/buttons/{{toLowerCase name}}-menu-home-small.svg" alt="Click to return to home">
+        </button>
+    </header>
+    <section id="navigation-tab">
+        <a onclick="jumpSection('{{heartId}}' + '-oe.html', 'Case Details');">Case Details
+            <p class="module-descriptions">Click to find out details of the case presentation, background, examination findings and a chest x-ray</p>
+        </a>
+        <a onclick="jumpSection('{{heartId}}' + '-interaction.html', 'Exploration');">Exploration</a>
+        <a onclick="jumpSection('{{heartId}}' + '-explanation.html', 'Explanation');">Explanation 
+            <p class="module-descriptions">Click to view an explanation of the case</p>
+        </a>
+    </section>
+
+    <section id="modal-blackout" class="no-modal"> </section>
+        <section id="modal" class="no-modal">
+            <h3 id="on-examination-review">On Examination</h3>
+            <h3 id="chest-xr-review">Chest XR</h3>
+
+            <article id="on-examination-review-content">
+                <div></div>
+                <p>
+                <ul>
+                    {{#each preliminary_information}}
+                    {{review this}}
+                    {{/each}}
+                </ul>
+
+                <h4>Background History</h4>
+                <ul>
+                    {{#each background_history}}
+                    {{review this}}
+                    {{/each}}
+                </ul>
+                <h4>On Examination</h4>
+                <ul>
+                    {{#each on_examination}}
+                    {{review this}}
+                    {{/each}}
+                </ul>
+                </p>
+
+            </article>
+            <article id="chest-xr-review-content">
+                <img class="chest-xr" src={{xray}} alt="Chest x-ray">
+            </article>
+        </section>
+        
+    <section id="content-half">
+        <div id="module-name">  
+            <h1>{{name}}'s Story</h1>
+            <h3>Exploration</h3>
+            <img class="profile" src="images/photos/{{toLowerCase name}}-recrop.png">
+        </div>
+
+        <div class="text-content-wrapper">
+            <section class="content module-slide">
+                <h1>Exploration</h1>
+                <p class="case-content">
+                    Now pick-up the 3D-printed model labelled #{{heartId}}.
+                </p>
+                <p id="interaction-case-content-button-explanation" class="case-content">
+                    The details of {{name}}’s case are available to you by clicking the case content button.
+                </p>
+                <p class="case-content">
+                    It will be helpful as you interact with the models as the module progresses.
+                </p>
+            </section>
+
+            <section class="activity module-slide">
+
+                <p id="refer-to-specimen" class="step">Refer to Specimen #{{heartId}}</p>
+
+                {{#if (nameCheck name "Ben")}}
+                <p class="step">
+                    <strong>1. Orient the heart so that you are looking at the posterior aspect.</strong>
+                    Can you identify the two atrial appendages?
+                </p>
+                <p class="step">
+                    <strong>2. Identify the right atrium – follow it down into its corresponding ventricle.</strong>
+                    Can you identify the features differentiating right from left ventricles?
+                </p>
+                <p class="step">
+                    <strong>3. Identify the right ventricular outflow tract.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>4. Identify the left atrium and follow it down into its corresponding ventricle.</strong>
+                    Does this have the features of a left ventricle?
+                </p>
+                <p class="step">
+                    <strong>5. Identify the left ventricular outflow tract.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>6. Identify any inter-atrial communications?</strong>
+                    Can you pass a pipe-cleaner through the defect?
+                </p>
+                <p class="step">
+                    <strong>7. Identify any inter-ventricular communications?</strong>
+                    Can you pass a pipe-cleaner through the defect?
+                </p>
+                <p class="step">
+                    <strong>8. Follow the left ventricular outflow tract into the aortic arch.</strong>
+                    Can you identify the remnant ligamentum arteriosum or a patent ductus arteriosus?
+                </p>
+
+                {{/if}}
+
+                {{#if (nameCheck name "Ayanthi")}}
+                <p class="step">
+                    <strong>1. Orient the heart so that you are looking at the posterior aspect.</strong>
+                    Can you identify the two atrial appendages?
+                </p>
+                <p class="step">
+                    <strong>2. Identify the right atrium – follow it down into its corresponding ventricle</strong>
+                    Does this have the features of a right ventricle?
+                </p>
+                <p class="step">
+                    <strong>3. Identify the right ventricular outflow tract.</strong>
+                    Is this obstructed?
+                </p>
+                <p class="step">
+                    <strong>4. Identify the left atrium – follow it down into its corresponding ventricle.</strong>
+                    Does this have the features of a left ventricle?
+                </p>
+                <p class="step">
+                    <strong>5. Identify the left ventricular outflow tract.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>6. Identify any inter-atrial communications.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>7. Identify any inter-ventricular communications.</strong>
+                    What is closely anatomically related to the VSD here? How would that affect blood flow?
+                </p>
+                <p class="step">
+                    <strong>8. Follow the left ventricular outflow tract into the aortic arch</strong>
+                    Can you identify the remnant ligamentum arteriosum or a patent ductus arteriosus?
+                </p>
+                {{/if}}
+
+                {{#if (nameCheck name "Amin")}}
+                <p class="step">
+                    <strong>1. Orient the heart so that you are looking at the posterior aspect.</strong>
+                    Can you identify the two atrial appendages?
+                </p>
+                <p class="step">
+                    <strong>2. Identify the right atrium – follow it down into its corresponding ventricle.</strong>
+                    Does this have the features of a right ventricle?
+                </p>
+                <p class="step">
+                    <strong>3. Identify the right ventricular outflow tract.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>4. Identify the left atrium – follow it down into its corresponding ventricle.</strong>
+                    Does this have the features of a left ventricle?
+                </p>
+                <p class="step">
+                    <strong>5. Identify the left ventricular outflow tract.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>6. Identify any inter-atrial communications.</strong>
+                    Can you pass a pipe-cleaner through the defect?
+                </p>
+                <p class="step">
+                    <strong>7. Identify any inter-ventricular communications.</strong>
+                    Can you pass a pipe-cleaner through the defect?
+                </p>
+                <p class="step">
+                    <strong>8. Follow the left ventricular outflow tract into the aortic arch.</strong>
+                    Can you identify the remnant ligamentum arteriosum or a patent ductus arteriosus?
+                </p>
+                {{/if}}
+
+                {{#if (nameCheck name "Lucy")}}
+                <p class="step">
+                    <strong>1. Orient the heart so that you are looking at the posterior aspect.</strong>
+                    Can you identify the two atrial appendages?
+                </p>
+                <p class="step">
+                    <strong>2. Identify the right atrium – follow it down into its corresponding ventricle</strong>
+                    Does this have the features of a right ventricle?
+                </p>
+                <p class="step">
+                    <strong>3. Identify the right ventricular outflow tract.</strong>
+                </p>
+                <p class="step">
+                    <strong>4. Identify the left atrium – follow it down into its corresponding ventricle.</strong>
+                    Does this have the features of a left ventricle?
+                </p>
+                <p class="step">
+                    <strong>5. Identify the left ventricular outflow tract.</strong>
+
+                </p>
+                <p class="step">
+                    <strong>6. Identify any inter-atrial communications.</strong>
+                    Can you pass a pipe-cleaner through the defect?
+                </p>
+                <p class="step">
+                    <strong>7. Identify any inter-ventricular communications.</strong>
+                    Can you pass a pipe-cleaner through the defect?
+                </p>
+                <p class="step">
+                    <strong>8. Compare this VSD to that of specimen 19041.</strong>
+                    Which valve is closely related to this VSD?
+                </p>
+                <p class="step">
+                    <strong>9. Follow the left ventricular outflow tract into the aortic arch.</strong>
+                    Is there a focal narrowing? Can you identify the remnant ligamentum arteriosum or a patent ductus arteriosus?
+                </p>
+                {{/if}}
+            </section>
+
+            <section class="activity module-slide">
+                <div class="differential-highlight">
+                    <img class="differential-diagnoses" src="images/illustrations/{{toLowerCase name}}-differential.svg">
+                    <h4>How would you summarise the cardiac defects you have identified?</h4>
+                </div>
+                <p class="case-content">
+                    Think carefully about your answer before you proceed to the next page.
+                </p>
+            </section>
+
+            <section class="extra activity module-slide">
+                <div class="differential-highlight">
+                    <img class="differential-diagnoses" src="images/illustrations/{{toLowerCase name}}-differential.svg">
+                    <h4>How would you summarise the cardiac defects you have identified?</h4>
+                </div>
+                {{#each cardiac_explanation}}
+                {{list this}}
+                {{/each}}
+            </section>
+            <section class="activity module-slide">
+                <div class="differential-highlight">
+                    <img class="differential-diagnoses" src="images/illustrations/{{toLowerCase name}}-differential.svg">
+                    {{!-- <p class="case-content">
+                        How would you link these cardiac defects to the clinical presentation? What is the diagnosis?
+                    </p> --}}
+                    <h4>How would you link these cardiac defects to the clinical presentation? What is the diagnosis?</h4>
+                </div>
+                <p class="case-content">
+                    Click next to view an explanation of {{name}}’s cardiac defects.
+                </p>
+            </section>
+            {{!-- <section class="activity module-slide">
+                <p class="case-content">
+                    Click next to view an explanation of {{name}}’s cardiac defects.
+                </p>
+            </section> --}}
+        </div>
+        
+        <article id="buttons-container">
+            <button id="previous" class="nav-button" onclick="nextSlide(-1)">
+                    <svg width="33" height="29" viewBox="0 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.5305 26.2037L18 14.6731L29.5305 3.14258"/>
+                        <path d="M14.5305 26.2037L2.99997 14.6731L14.5305 3.14258"/>
+                    </svg>
+            </button>
+            <button id="next" class="nav-button" onclick="nextSlide(1);">
+                    <svg width="63" height="29" viewBox="0 0 63 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 26.2037L14.5305 14.6731L3 3.14258"/>
+                        <path d="M18 26.2037L29.5305 14.6731L18 3.14258"/>
+                        <path d="M33 26.2037L44.5305 14.6731L33 3.14258"/>
+                        <path d="M48 26.2037L59.5305 14.6731L48 3.14258"/>
+                    </svg>
+            </button>
+            <button id="next-module" class="text-button" onclick="nextModule()">Explanation</button>
+        </article>
+    <div id="banner">
+        <div id="circle"></div>
+    </div>
+            
+    </section>
+<button id="collapse-button"><img src="images/buttons/collapse-button.svg" alt="Click to collapse instructions"><img id="collapse-button-arrows" src="images/buttons/collapse-button-arrows.svg"></button>
+<button id="case-content-button" class="base-layer" onclick="showReviewModal();"><img src="images/buttons/case-content.svg" alt="Click to reveal case content"></button>
+    <section id="image-half">
+            <article id="toggles">
+                        <form>
+                        <h5>Labels</h5>
+                            <label id="switch"> 
+                                <input type="checkbox" onclick="showLabel();" checked>
+                                <span class="slider round" ></span>
+                            </label>
+                        </form>
+                </article>
+        <img class="story-illustration" src="images/illustrations/{{toLowerCase name}}-interaction.svg">
+        <div id="heart-model">
+            <canvas id="c"></canvas>
+            <div id="labels"></div>
+        </div>
+    </section>
+</body>
+
+
+<script type="module">
+
+    //Collapsing the window in interaction
+    window.collapseSectionHorizontal = collapseSectionHorizontal;
+    window.collapseSectionVertical = collapseSectionVertical;
+    
+    var tabletMode;
+    var collapseButton = document.getElementById('collapse-button');
+    
+    var collapseTicker = true;
+    var contentHalf = document.getElementById('content-half');
+    var collapseButton = document.getElementById('collapse-button');
+    var textContentWrapper = document.getElementsByClassName('text-content-wrapper')[0];
+    var collapseButtonArrows = document.getElementById('collapse-button-arrows');
+    var caseContentButton = document.getElementById('case-content-button');
+    var c = document.getElementById('c');
+    var int = document.getElementById('interaction')
+    var buttonsContainer = document.getElementById('buttons-container');
+    var nextButton = document.getElementById('next')
+    var header = document.getElementsByTagName('header')[0];
+
+    function collapseSectionHorizontal() {
+        //if collapsed
+        c.style.width = "100%";
+        if (collapseTicker == true) {
+            contentHalf.style.direction = "rtl"
+            contentHalf.style.visibility = "hidden"
+            collapseButton.style.transform = "translateX(-35vw)"
+            collapseButtonArrows.style.transform = "rotateZ(180deg)"
+            textContentWrapper.style.overflow = "hidden";
+            caseContentButton.style.transform = "translateX(-35vw)"
+            int.style.gridTemplateColumns = "5vw 35vw 60vw"
+            int.style.gridTemplateAreas = "'MenuButton MenuButton Nav' 'Information Image Image'"
+            buttonsContainer.style.marginRight = '-2em';
+            buttonsContainer.style.marginLeft = '0';
+            header.style.filter = "none";
+            collapseTicker = false;
+        //if expanded
+        } else {
+            contentHalf.style.transform = "translateX(0)"
+            contentHalf.style.direction = "ltr"
+            contentHalf.style.visibility = "visible"
+            collapseButton.style.transform = "translateX(0)"
+            collapseButtonArrows.style.transform = "rotateZ(0deg)"
+            textContentWrapper.style.overflow = "auto";
+            caseContentButton.style.transform = "translateX(0)"
+            int.style.gridTemplateColumns = "40vw 0vw 60vw"
+            int.style.gridTemplateAreas = "'MenuButton MenuButton Nav' 'Information Image Image'"
+ 
+            buttonsContainer.style.marginLeft = '-2em';
+            buttonsContainer.style.marginRight = '0';
+            header.style.filter = "drop-shadow(2px 2px 8px #cccccc)"
+            collapseTicker = true;
+        }
+    }
+
+
+    function collapseSectionVertical() {
+        //if collapsed
+        c.style.height = "100%";
+        if (collapseTicker == true) {
+            int.style.gridTemplateRows = "50px 0 1fr 65px"
+            contentHalf.style.visibility = "hidden"
+            contentHalf.style.height = "0"
+            textContentWrapper.style.overflow = "hidden";
+            caseContentButton.style.visibility = "hidden"
+            collapseButtonArrows.style.transform = "rotateZ(270deg)"//
+            collapseButton.style.top = "-2px";
+
+            collapseTicker = false;
+        //if expanded
+        } else {
+            contentHalf.style.height = "244px"
+            int.style.gridTemplateRows = "50px auto 1fr 65px"
+            contentHalf.style.visibility = "visible"
+            collapseButtonArrows.style.transform = "rotateZ(90deg)"
+            collapseButton.style.top = contentHalf.clientHeight + "px";
+            caseContentButton.style.visibility = "visible"
+            caseContentButton.style.position = "default";
+            caseContentButton.style.top = "17px"
+            
+            collapseTicker = true;
+        }
+    }
+
+    function mediaQueryModifier(x) {
+        if (x.matches) { // If media query matches
+            collapseButton.setAttribute('onclick', 'collapseSectionVertical()');
+            tabletMode = true;
+        } else {
+            collapseButton.setAttribute('onclick', 'collapseSectionHorizontal()');
+            tabletMode = false;
+        }
+    }
+
+    var tabletSize = window.matchMedia("(max-width: 824px)")
+    mediaQueryModifier(tabletSize) // Call listener function at run time
+    tabletSize.addListener(mediaQueryModifier) // Attach listener function on state changes
+
+    //////////////////////////////////////// COLOUR SWITCH //////////////////////////////////////
+    switch ("{{name}}") {
+        case "Ben":
+            document.documentElement.style.setProperty("--module-colour", "#9B51E0")
+            break
+        case "Ayanthi":
+            document.documentElement.style.setProperty("--module-colour", "#EB5757")
+            break
+        case "Amin":
+            document.documentElement.style.setProperty("--module-colour", "#2F80ED")
+            break
+        case "Lucy":
+            document.documentElement.style.setProperty("--module-colour", "#27AE60")
+            break
+        default:
+            break
+    }
+
+    //importing js modules
+    import * as THREE from './js/three.module.js';
+    import { OBJLoader } from './js/OBJLoader.js';
+    import { OrbitControls } from './js/OrbitControls.js';
+    import { CSS2DRenderer, CSS2DObject } from './js/CSS2DRenderer.js';
+    import TWEEN from 'https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.3.2/Tween.js';
+
+    //Because the module doesn't work otherwise.
+    window.camera = camera;
+
+    //Declaring some variables for the labels
+    var testLabel, labelRenderer;
+
+    ///////////////////////// SETTING UP THE SCENE /////////////////////////////   
+    //establishing the scebe abd background color
+    var scene = new THREE.Scene();
+
+    //lights
+    var hemiLight = new THREE.HemisphereLight( 0xe7e7e7, 0x222222, 0.7 );
+    hemiLight.position.set( 0, 20, 0 );
+
+    var dirLight = new THREE.DirectionalLight( 0xe7e7e7, 0.5 );
+
+    dirLight.castShadow = true;
+    dirLight.shadow.camera.top = 2;
+    dirLight.shadow.camera.bottom = - 2;
+    dirLight.shadow.camera.left = - 2;
+    dirLight.shadow.camera.right = 2;
+    dirLight.shadow.camera.near = 0.1;
+    dirLight.shadow.camera.far = 40;
+
+    //getting the right half of the canvas
+    var imageHalf = document.getElementById('image-half')
+    const canvas = document.querySelector('#c');
+
+    var camera = new THREE.PerspectiveCamera(45, imageHalf.clientWidth / imageHalf.clientHeight, 1, 500);
+
+    //rendering the window and everything in it
+    const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+    });
+
+    //Setting the position of the camera
+    camera.position.x = 0;
+    camera.position.y = 0;
+    camera.position.z = 15;
+
+    //adding lights to camera
+    camera.add(dirLight);
+    camera.add(hemiLight);
+
+    //adding camera to scene
+    scene.add(camera);
+
+    //Adding Orbit Controls
+    var controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.minDistance = 10;
+    controls.maxDistance = 20;
+
+    //Resizing the renderer as needed
+    function resizeRendererToDisplaySize(renderer) {
+        const canvas = renderer.domElement;
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        const needResize = canvas.width !== width || canvas.height !== height;
+        if (needResize) {
+            renderer.setSize(width, height, false);
+        }
+        return needResize;
+    }
+
+    // Declare variables to manipulate heart object rotation
+    var heartObj;
+    var xRotation, yRotation, zRotation;
+
+    ///////////////////////// MODEL LOADER /////////////////////////////
+
+    var loader = new OBJLoader()
+
+    loader.load("{{ model }}", function (heart) {
+        //material of model
+        var material = new THREE.MeshStandardMaterial({
+            color: 0xfffee2,
+            roughness: 0.75,
+            shadowSide: THREE.DoubleSide,
+        });
+
+        //centering the model and adding material
+        heart.traverse(function (child) {
+            if (child instanceof THREE.Mesh) {
+                child.geometry.center();
+                child.material = material;
+            }
+        })
+
+        //adding heart to scene
+        heart.name = 'heart';
+        scene.add(heart);
+
+        //positioning the heart for optimal scale and visibility
+            switch ("{{name}}") {
+                case "Ayanthi":
+                    heart.scale.set(0.15, 0.15, 0.15);
+                    break
+                case "Amin":
+                    heart.scale.set(0.13, 0.13, 0.13);
+                    break
+                case "Lucy":
+                    heart.scale.set(0.11, 0.11, 0.11);
+                    break
+                default:
+                    heart.scale.set(0.1, 0.1, 0.1);
+                    break
+            }
+
+        heart.rotation.x = 0;
+        heart.rotation.y = 3;
+        heart.rotation.z = 0;
+
+        // get heart object to rotate
+        heartObj = scene.getObjectByName('heart', true);
+    })
+
+    //loading the json file with heart labels
+    async function loadJSON(url) {
+        const req = await fetch(url);
+        return req.json();
+    }
+
+    //setting heart labels
+    let heartLabels;
+    async function loadLabelData() {
+        heartLabels = await loadJSON('./js/{{toLowerCase name}}-heart-labels.json');  
+
+        //code from three.js fundamentals - plotting labels as though they were on a sphere
+        //uses longitude and latitude
+        const lonFudge = Math.PI * 1.5;
+        const latFudge = Math.PI;
+        //x
+        const latHelper = new THREE.Object3D();
+
+        //y
+        const lonHelper = new THREE.Object3D();
+        lonHelper.add(latHelper);
+
+        const depthHelper = new THREE.Object3D();
+        latHelper.add(depthHelper);
+
+        //combining x and y
+        const positionHelper = new THREE.Object3D();
+        depthHelper.add(positionHelper);
+
+        //label parent element
+        const labelParentElem = document.querySelector('#labels');
+        for (const heartLabel of heartLabels) {
+            const {xPosition, yPosition, zPosition, name} = heartLabel;
+
+            // adjust the helpers to point to the latitude and longitude
+            latHelper.rotation.x = THREE.MathUtils.degToRad(xPosition) + latFudge;
+            lonHelper.rotation.y = THREE.MathUtils.degToRad(yPosition) + lonFudge;    
+            depthHelper.position.z = zPosition; 
+
+            // get the position of the lat/lon
+            positionHelper.updateWorldMatrix(true, false);
+            const position = new THREE.Vector3();
+            positionHelper.getWorldPosition(position);
+            heartLabel.position = position;
+            // add label for each object
+            const elem = document.createElement('div');
+            elem.textContent = name;
+            labelParentElem.appendChild(elem);
+            heartLabel.elem = elem;
+
+            const dotGeometry = new THREE.Geometry();
+            heartLabel.dotGeometry = dotGeometry;
+            const dotMaterial = new THREE.PointsMaterial( { color: 0x595959, size: 5, sizeAttenuation: false } );
+            heartLabel.dotMaterial = dotMaterial;
+            const labelDot = new THREE.Points( dotGeometry, dotMaterial );
+            heartLabel.labelDot = labelDot;
+            }
+        }
+    loadLabelData();
+
+    const tempV = new THREE.Vector3();
+    const cameraToPoint = new THREE.Vector3();
+    const cameraPosition = new THREE.Vector3();
+    const normalMatrix = new THREE.Matrix3();
+
+    function updateLabels() {
+        // exit if we have not yet loaded the JSON file
+        //all is three.js fundamentals
+        if (!heartLabels) {
+        return;
+        }
+
+        const minVisibleDot = 0.2;
+        // get a matrix that represents a relative orientation of the camera
+        normalMatrix.getNormalMatrix(camera.matrixWorldInverse);
+        // get the camera's position
+        camera.getWorldPosition(cameraPosition);
+
+        for (const heartLabel of heartLabels) {
+            const {position, elem, dotGeometry, dotMaterial, labelDot} = heartLabel;
+            //const {position, elem} = heartLabel;
+
+            //creating a dot on the model for each label
+
+
+            // Orient the position based on the camera's orientation.
+            // Since the sphere is at the origin and the sphere is a unit sphere
+            // this gives us a camera relative direction vector for the position.
+            tempV.copy(position);
+            tempV.applyMatrix3(normalMatrix);
+        
+            // compute the direction to this position from the camera
+            cameraToPoint.copy(position);
+            cameraToPoint.applyMatrix4(camera.matrixWorldInverse).normalize();
+        
+            // get the dot product of camera relative direction to this position
+            // on the globe with the direction from the camera to that point.
+            // 1 = facing directly towards the camera
+            // 0 = exactly on tangent of the sphere from the camera
+            // < 0 = facing away
+            const dot = tempV.dot(cameraToPoint);
+ 
+            // if the orientation is not facing us hide it.
+            if (dot > minVisibleDot) {
+            elem.style.display = 'none';
+            continue;
+            }
+            // restore the element to its default display style
+            elem.style.display = '';
+
+            dotGeometry.vertices.push(position);
+            scene.add( labelDot );
+            labelDot.visible = false;
+
+            // get the normalized screen coordinate of that position
+            // x and y will be in the -1 to +1 range with x = -1 being
+            // on the left and y = -1 being on the bottom
+            tempV.copy(position);
+            tempV.project(camera);
+            // convert the normalized position to CSS coordinates
+            const x = (tempV.x *  .5 + .5) * canvas.clientWidth;
+            const y = (tempV.y * -.5 + .5) * canvas.clientHeight;
+
+            // move the elem to that position
+            elem.style.transform = `translate(-50%, -50%) translate(${x}px,${y}px)`;
+
+            // set the zIndex for sorting
+            elem.style.zIndex = (-tempV.z * .5 + .5) * 100000 | 0;
+        }
+    }
+
+    //tweening function for smoooth movement
+    function tweenView(positionX, positionY, positionZ, rotationX, rotationY, rotationZ) {
+        var from = {
+            x: camera.position.x,
+            y: camera.position.y,
+            z: camera.position.z,
+            xR: camera.rotation.x,
+            yR: camera.rotation.y,
+            zR: camera.rotation.z
+        };
+        var to = {
+            x: positionX,
+            y: positionY,
+            z: positionZ,
+            xR: rotationX,
+            yR: rotationY,
+            zR: rotationZ
+        };
+        var tween = new TWEEN.Tween(camera.position)
+            .to(to, 2000)
+            .easing( TWEEN.Easing.Sinusoidal.InOut).start();
+    }
+
+    //Animate and Render
+    var animate = function () { 
+        const canvas = renderer.domElement;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+        if (resizeRendererToDisplaySize(renderer)) {
+            const canvas = renderer.domElement;
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+        }
+        requestAnimationFrame(animate);
+        controls.update();
+        TWEEN.update(); 
+        updateLabels();
+        renderer.render(scene, camera);
+
+        // log camera position & rotation to for setting them in changeview
+        //console.log(camera.position)
+        //console.log(camera.rotation)
+    };
+
+    // resize window on event onWindowResize
+    window.addEventListener('resize', onWindowResize, false)
+    function onWindowResize() {
+        camera.aspect = imageHalf.clientWidth / imageHalf.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize((imageHalf.clientWidth), (imageHalf.clientHeight));
+    }
+
+    animate();
+
+
+    var labelBaseNumber = 0;
+    var previousViewNumberLength = 0;
+    var stepDirection;
+    //Changing the model views on click with tween.js
+    function changeView(step, name) {
+        window.tweenView = tweenView;
+        var allLabels = document.querySelectorAll('#labels div');
+
+        var baseNumber;
+        var viewNumberLength = 0;
+
+        switch (step) {
+        case 1:
+            switch (name){
+            case 'Ben':
+                tweenView(5.85, 4.28, 12.79, -0.32, 0.41, 0.13);
+            break;
+            case 'Ayanthi':
+                tweenView(3.44, -0.95, 14.6, 0.06, 0.23, -0.01);
+            break;
+            case 'Amin':
+                tweenView(-0.290, 5.940, 13.77, -0.407, -0.019, -0.008);
+            break;
+            case 'Lucy':
+                tweenView(-3.612, 2.099, 14.406, -0.144, -0.243, -0.035);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 2:
+            switch (name){
+            case 'Ben':
+                tweenView(12.05, 3.11, 6.33, -0.46, 1.04, 0.40);
+            break;
+            case 'Ayanthi':
+                tweenView(14.8, 2.67, 0.14, -1.52, 1.39, 1.52);
+            break;
+            case 'Amin':
+                tweenView(4.556, 6.515, 12.719, -0.473, 0.308, 0.154);
+            break;
+            case 'Lucy':
+                tweenView(7.354, 7.078, 10.991, -0.572, 0.512, 0.305);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 3:
+            switch (name){
+            case 'Ben':
+                tweenView(1.42, -13.87, -6.7, 2.02, 0.09, -2.95);
+            break;
+            case 'Ayanthi':
+                tweenView(-2.32, -12.3, -8.32, 2.17, -0.16, 2.92);
+            break;
+            case 'Amin':
+                tweenView(8.0291, -10.114, -7.630, 2.217, 0.564, -2.524);
+            break;
+            case 'Lucy':
+                tweenView(1.538, -14.774, -2.087, 1.711, 0.102, -2.513);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 4:
+            switch (name){
+            case 'Ben':
+                tweenView(0.51, 3.85, 14.1, -0.27, 0.04, 0.01);
+            break;
+            case 'Ayanthi':
+                tweenView(-8.28, 1.33, 12.4, -0.11, -0.58, -0.06);
+            break;
+            case 'Amin':
+                tweenView( -6.220, 3.708, 13.135, -0.275, -0.427, -0.116);
+            break;
+            case 'Lucy':
+                tweenView(-10.341, 10.160, 3.848, -1.208, -0.760, -1.068);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 5:
+            switch (name){
+            case 'Ben':
+                tweenView(-4.55, -10.29, 9.46, 0.83, -0.31, 0.32);
+            break;
+            case 'Ayanthi':
+                tweenView(-10.72, -5.84, 8.73, 0.59, -0.80, 0.45);
+            break;
+            case 'Amin':
+                tweenView( -7.848, -11.152, 6.246, 1.060, -0.550, 0.751);
+            break;
+            case 'Lucy':
+                tweenView(-11.618, -5.940, 7.396, 0.676, -0.886, 0.556);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 6:
+            switch (name){
+            case 'Ben':
+                tweenView(8.66, -10.58, 7.26, 0.97, 0.59, -0.68);
+            break;
+            case 'Ayanthi':
+                tweenView(13.88, 5.35, 1.91, -1.23, 1.18, 1.20);
+            break;
+            case 'Amin':
+                tweenView(12.896, 5.706, 5.111, -0.840, 1.034, 0.764);
+            break;
+            case 'Lucy':
+                tweenView(9.472, -3.135, 11.199, 0.272, 0.683, -0.175);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 7:
+            switch (name){
+            case 'Ben':
+                tweenView(0.29, -9.15, -12.48, 2.51, 0.02, -3.13);
+            break;
+            case 'Ayanthi':
+                tweenView(-0.32, -13.24, -7.05, 2.06, -0.02, 3.10);
+            break;
+            case 'Amin':
+                tweenView(-9.886, 1.323, 11.202, -0.117, -0.719, -0.077);
+            break;
+            //7 & 8 are the same for Lucy
+            case 'Lucy':
+                tweenView(10.024, -9.739, -5.442, 2.080, 0.731, -2.267);
+            break;
+            default:
+                break
+            }
+            break;
+
+        case 8:
+            switch (name){
+            case 'Ben':
+                tweenView(4.65, 4.19, -13.16, -2.83, 0.32, 3.04);
+            break;
+            case 'Ayanthi':
+                tweenView(-5.55, 3.44, -13.51, -2.89, -0.38, -3.05);
+            break;
+            case 'Amin':
+                tweenView( -1.939, 0.798, -14.852, -3.087, -0.129, -3.134);
+            break;
+            case 'Lucy':
+                tweenView(10.024, -9.739, -5.442, 2.080, 0.731, -2.267);
+            break;
+            default:
+                break
+            }
+            break;
+            
+        case 9:
+            switch (name){
+            case 'Lucy':
+                tweenView(9.055, -3.204, -11.519, 2.870, 0.648, -2.975);
+            break;
+            default:
+                break
+            }
+            break;
+        default: 
+            break;
+        }
+
+
+        //for all the heart labels
+        for (const heartLabel of heartLabels) {
+            //hiding all labels initially
+            for ( var g = 0; g < allLabels.length; g++ ) {
+                allLabels[g].style.visibility = "hidden";
+            }
+
+            //number of labels of the current viewNumber
+            const {viewNumber} = heartLabel;
+            viewNumberLength = heartLabels.filter(function(d) { return d.viewNumber === step; }).length;
+
+            //if the step number is greater than 1
+            if (step >= 1) {
+                previousViewNumberLength = heartLabels.filter(function(d) { return d.viewNumber === (step - 1); }).length;
+                localStorage.setItem('previousViewNumber', previousViewNumberLength);
+            } else if (step == 0) {
+                localStorage.setItem('previousViewNumber', 0);
+            } 
+        }
+
+        //ensuring correct number of labels are shown pending user clicks forward or backward
+        switch("{{name}}") {
+            //if lucy, number of steps is 9
+            case "Lucy":
+            if ((stepDirection == true) && (step <= 9)) {
+                labelBaseNumber += previousViewNumberLength;
+            }   else if ((stepDirection == false) && (step < 9)) {
+                labelBaseNumber -= viewNumberLength;
+            }   else if ((step == 9) && (stepDirection == false)) {
+                //do nothing
+            }
+                break;
+            //if not lucy, number of steps is 8
+            default:
+            if ((stepDirection == true) && (step <= 8)) {
+                labelBaseNumber += previousViewNumberLength;
+            }   else if ((stepDirection == false) && (step < 8)) {
+                labelBaseNumber -= viewNumberLength;
+            }   else if ((step == 8) && (stepDirection == false)) {
+                //do nothing
+            }
+                break;
+        }
+
+        //display all the labels with viewNumber
+        for (var h = labelBaseNumber; h < labelBaseNumber + viewNumberLength; h ++) {
+            allLabels[h].style.visibility = "visible";
+        }
+    }
+
+    /////////////////////////////SHOW LABELS///////////////////////////
+    window.showLabel = showLabel;
+    var labelTicker = false;
+    function showLabel() {
+        const labelContainer = document.getElementById('labels');
+        var slider = document.querySelectorAll('input')[0]
+        if (slider.checked == true) {
+           //labelDot.visible = true;
+            labelContainer.style.display = "block";
+        } else {
+            //labelDot.visible = false;
+            labelContainer.style.display = "none";
+            labelTicker = true;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // PREVIOUSLY THIS WAS THE MAIN INTERACTION JS FILE //
+    // CONTAINS CLICK THROUGHS RATHER THAN THREE.JS FUNCTIONALITY
+
+    //Because the module doesn't work otherwise.
+    window.nextPoint = nextPoint;
+    window.nextModule = nextModule;
+    window.nextSlide = nextSlide;
+    window.nextStep = nextStep;
+    window.exitModule = exitModule;
+    window.jumpSection = jumpSection;
+    window.showReviewModal = showReviewModal;
+    window.changeView = changeView;
+    ////////////////// TOP LEFT EXIT MODULE ////////////////////
+    //Warning to prevent user from accidentally leaving the module
+    function exitModule() {
+        Swal.fire({
+            title: 'Leave Module?',
+            text: 'You will be taken back to the Modules Homepage.',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Cancel',
+            confirmButtonText: 'Leave',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                window.location.href = "index.html";
+            }
+        })
+    }
+
+
+
+    //////////////////////////////////////// NAVIGATION TAB  //////////////////////////////////////
+    //checking for the path name
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+
+    //highlighting the text to show the current page displayed
+    if (page.includes('oe')) {
+        document.querySelectorAll('#navigation-tab a')[0].style.color = "black";
+        document.querySelectorAll('#navigation-tab a')[0].style.fontWeight = "700";
+        document.querySelectorAll('#navigation-tab a')[0].style.cursor = "default";
+    } else if (page.includes('interaction')) {
+        document.querySelectorAll('#navigation-tab a')[1].style.color = "black";
+        document.querySelectorAll('#navigation-tab a')[1].style.fontWeight = "700";
+        document.querySelectorAll('#navigation-tab a')[1].style.cursor = "default";
+    } else if (page.includes('explanation')) {
+        document.querySelectorAll('#navigation-tab a')[2].style.color = "black";
+        document.querySelectorAll('#navigation-tab a')[2].style.fontWeight = "700";
+        document.querySelectorAll('#navigation-tab a')[2].style.cursor = "default";
+    }
+    //If the user clicks on a different section to jump to, warn them before they jump to it
+    function jumpSection(destination, sectionName) {
+        if (destination == page) {
+        } else {
+            Swal.fire({
+                title: 'Start ' + sectionName + '?',
+                text: 'You will leave this section.',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'Cancel',
+                confirmButtonText: 'Start',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = destination;
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                }
+            })
+        }
+    }
+
+    ///////////////////////////////// AT THE END OF A MODULE ///////////////////////////
+    //at the end of the module, automatically forward user to the next section
+    function nextModule() {
+        window.location.href = "" + "{{heartId}}" + "-explanation.html";
+    }
+
+    ////////// USING LOCAL STORAGE TO OFFSET IF USER NAVIGATES TO PREVIOUS SLIDE FIXING/////////////
+    document.getElementById('previous').addEventListener('click', function pointViewCount() {
+        localStorage.setItem('prevCurrentPoint', currentPoint);
+    })
+
+    /////////////////////////////////// PROGRESSION THROUGH SLIDES ///////////////////////////////
+    let pointIncrement = 0;
+    //function to show current slide
+    function showSlide(currentSlide) {
+        //if the current slide is the first one, hide the previous button and show the next button only
+        if (currentSlide == 0) {
+            document.getElementById('previous').style.visibility = "hidden"
+            document.getElementById('next').style.visibility = "visible"
+            //if the current slide is the second last one, show the next-module button, hide the next button and show the previous button
+        } else if (currentSlide == (document.querySelectorAll('.module-slide').length - 1)) {
+            document.getElementById('previous').style.visibility = "visible"
+            document.getElementById('previous').style.display = "flex"
+            document.getElementById('next-module').style.visibility = "visible"
+            document.getElementById('next-module').style.display = "flex"
+            document.getElementById('next').style.visibility = "hidden"
+            document.getElementById('next').style.display = "none"
+            //show both the previous and next buttons and hide the next-module button at all other times
+        } else {
+            document.getElementById('previous').style.visibility = "visible"
+            document.getElementById('previous').style.display = "flex"
+            document.getElementById('next').style.visibility = "visible"
+            document.getElementById('next').style.display = "flex"
+            document.getElementById('next-module').style.visibility = "hidden"
+            document.getElementById('next-module').style.display = "none"
+        }
+
+        //show this slide a.k.a current slide
+        var thisSlide = document.getElementsByClassName('module-slide')[currentSlide];
+        thisSlide.style.display = "flex";
+
+        //instead if the current slide has steps i.e. the actual interaction stage
+        var stepContent = document.querySelectorAll('.step');
+        //check for steps
+        for (var i = 0; i < stepContent.length; i++) {
+            if ((thisSlide.contains(stepContent[i])) && (true)) {
+                //change the next and previous buttons to move through steps
+                document.getElementById('next').setAttribute("onclick", "nextStep(1);")
+                document.getElementById('previous').setAttribute("onclick", "nextStep(-1);")
+                //if the current step is the first step, display it (it doesn't work when this isn't there for some reason)
+                if (currentStep == 0) {
+                    var firstStep = document.querySelectorAll('.step')[currentStep];
+                    firstStep.style.display = "flex"
+                }
+            }
+        }
+    }
+
+    function showIllustration(slideNumber) {
+        var switchIllustration = document.getElementsByClassName('story-illustration')[0];
+        var heartModels = document.getElementById('heart-model');
+        var caseReviewButton = document.getElementById('case-content-button');
+        var contentHalf = document.getElementById('content-half');
+        var contentHeader = document.querySelector('#oe header');
+        var toggles = document.getElementById('toggles');
+        var collapseButton = document.getElementById('collapse-button');
+        switch(slideNumber) {
+            case 0:
+                switchIllustration.style.display = "flex";
+                heartModels.style.display = "none";
+                toggles.style.display = "none";
+                caseReviewButton.style.visibility = "visible";
+                collapseButton.style.visibility = "hidden";
+                break;
+            case 1 :
+                switchIllustration.style.display = "none";
+                heartModels.style.display = "flex";
+                toggles.style.display = "flex";
+                caseReviewButton.style.visibility = "visible";
+                collapseButton.style.visibility = "visible"
+
+                break;
+            case 2 :
+                if (tabletMode == true) {
+                    switchIllustration.style.display = "none";
+                } else {
+                    switchIllustration.style.display = "flex";
+                }
+                heartModels.style.display = "none";
+                toggles.style.display = "none";
+                caseReviewButton.style.visibility = "hidden";
+                collapseButton.style.visibility = "hidden"
+                break;  
+        }
+    }
+
+    //Progression through slides
+    var currentSlide = 0;
+    function nextSlide(n) {
+        //hide the previous slide
+        var previousSlide = document.getElementsByClassName('module-slide')[currentSlide];
+        previousSlide.style.display = "none";
+        //add or minus 1 to current slide, depending on previous or next button click
+        currentSlide += n;
+        //display the slide
+        showSlide(currentSlide);
+        showIllustration(currentSlide);
+    }
+    showSlide(currentSlide);
+
+    /////////////////////////////////// PROGRESSION THROUGH POINT CONTENT /////////////////////////////
+
+    //This both a progression and display function for showing each point in the module
+    var currentPoint = 0;
+    function nextPoint(n) {
+        //x is the number of elements with the class case-content within the current slide
+        var x = document.getElementsByClassName('module-slide')[currentSlide].querySelectorAll('.case-content').length;
+        //Add or minus 1 to the current point, depending on previous or next button click
+        currentPoint += n;
+        pointIncrement++;
+        var thisPoint = document.getElementsByClassName('case-content')[currentPoint];
+
+        //if the current point is less than the number existing in this slide
+        if (currentPoint < x) {
+            //show it
+            thisPoint.style.visibility = "visible";
+            //if the points on this slide have already been displayed, add on the number to the current point count so that the it skips to the next slide
+        } else if (localStorage.hasOwnProperty('prevCurrentPoint') == true) {
+            currentPoint == (parseInt(localStorage.getItem('prevCurrentPoint')));
+            document.getElementById('next').setAttribute("onclick", "nextSlide(1);");
+            document.getElementById('next').click();
+            localStorage.clear();
+            currentPoint--;
+            //if the current point is the maximum number of points in this slide, clear the class name, move on
+        } else if (currentPoint == x) {
+            for (let i = 0; i < currentPoint; i++) {
+                document.getElementsByClassName('module-slide')[currentSlide].querySelectorAll('.case-content')[0].classList = "";
+            }
+            document.getElementById('next').click();
+            document.getElementById('next').setAttribute("onclick", "nextSlide(1);");
+            document.getElementById('next').click();
+        } else {
+            document.getElementById('next').setAttribute("onclick", "nextSlide(1);");
+            document.getElementById('next').click();
+            currentPoint = 0;
+        }
+    }
+
+    ////////////////////////////////// PROGRESSION THROUGH STEPS OF INTERACTION /////////////////////////////
+    //Progress through the Steps
+    var currentStep = 0;
+
+    function nextStep(m) {
+
+        //Increment the steps by either -1 or 1 depending upon previous or next buttons clicked
+        currentStep += m;
+        if (m > 0) {
+            stepDirection = true;
+        } else if (m < 0) {
+            stepDirection = false;
+        }
+
+        //If the current step exists
+        switch("{{name}}") {
+            case "Lucy":
+                if ((currentStep > 0) && (currentStep < 11)) {
+                    //Hide the previous step
+                    var previousStep = document.querySelectorAll('.step')[currentStep - 1];
+                    previousStep.style.display = "none";
+                } else if (currentStep > 10) {
+                    currentStep -=1;
+                }
+                break;
+            default:
+                if ((currentStep > 0) && (currentStep < 10)) {
+                    //console.log(currentStep)
+                    //Hide the previous step
+                    var previousStep = document.querySelectorAll('.step')[currentStep - 1];
+                    previousStep.style.display = "none";
+                } else if (currentStep > 9) {
+                    currentStep -=1;
+                }
+                break;
+        }
+        //Show the current step
+        showStep();
+    }
+
+    //Display the Step
+    function showStep() {
+        //Number of Steps
+        var steps = document.querySelectorAll('.step').length;
+
+        //if the instructions are closed and the student tries to move to the next step
+        //open the instructions
+
+        if ((collapseTicker == false) && (tabletMode == true)) {
+            collapseSectionVertical();
+            //collapseTicker = true;
+        } else if ((collapseTicker == false) && (tabletMode == false)) {
+            collapseSectionHorizontal();
+        }
+
+        //If the first step hasn't been accessed yet, progress to changing slides
+        if (currentStep < 0) {
+            document.getElementById('next').setAttribute("onclick", "nextSlide(1);");
+            document.getElementById('previous').setAttribute("onclick", "nextSlide(-1);");
+            document.getElementById('previous').click();
+            currentStep = 0;
+
+            //If the current step is less than the number of steps that exist but greater than 0
+        } else if ((currentStep < steps) && (currentStep >= 0)) {
+            var thisStep = document.querySelectorAll('.step')[currentStep];
+            for (let l = 0; l < steps; l++) {
+                //And if step[l] doesn't equal to the current step that is being displayed
+                if (l != currentStep) {
+                    document.querySelectorAll('.step')[l].style.display = "none";
+                }
+            }
+            //show this step
+            thisStep.style.display = "flex";
+            // Switch View in Three
+            changeView(currentStep, "{{name}}")
+
+            //If the current step has reached the number of existing steps, progress to changing slides
+        } else if (currentStep == (steps)) {
+            document.getElementById('next').setAttribute("onclick", "nextSlide(1);");
+            document.getElementById('previous').setAttribute("onclick", "nextSlide(-1);");
+            document.getElementById('next').click();
+        }
+    }
+
+    /////////////////////////////////////// MODAL REVIEW INFORMATION /////////////////////////////////////////////
+
+    //Toggling display of review information in modal
+    function showReviewModal() {
+        //Modal Background
+        var modalBlackout = document.getElementById('modal-blackout');
+        modalBlackout.classList.toggle('show-modal');
+        //Actual Modal
+        var modal = document.getElementById('modal');
+        modal.classList.toggle('show-modal');
+        //Case Content Button
+        var caseContentButton = document.getElementById('case-content-button');
+        caseContentButton.classList.toggle('z-layers')
+    }
+
+    //Selecting onexamination and chest xr review titles and content
+    var OEReviewHeading = document.getElementById('on-examination-review');
+    var chestXRReviewHeading = document.getElementById('chest-xr-review');
+    var OEReviewContent = document.getElementById('on-examination-review-content');
+    var chestXRReviewContent = document.getElementById('chest-xr-review-content');
+
+    //On Examination
+    //Check if OE heading is clicked to show OE review content
+    OEReviewHeading.addEventListener('click', function showOEReview() {
+        chestXRReviewHeading.style.backgroundColor = "var(--module-colour)";
+        OEReviewHeading.style.backgroundColor = "white";
+                OEReviewHeading.style.color = "var(--module-colour)";
+        chestXRReviewHeading.style.color = "white";
+        OEReviewContent.style.display = "flex";
+        chestXRReviewContent.style.display = "none";
+    })
+
+    //Chest XR
+    //Check if Chest XR heading is clicked to show Chest XR review content
+    chestXRReviewHeading.addEventListener('click', function showChestXRReview() {
+                OEReviewHeading.style.backgroundColor = "var(--module-colour)";
+        chestXRReviewHeading.style.backgroundColor = "white";
+        chestXRReviewHeading.style.color = "var(--module-colour)";
+        OEReviewHeading.style.color = "white";
+
+        OEReviewContent.style.display = "none";
+        chestXRReviewContent.style.display = "flex";
+    })
+
+    ////////////////////// FIX THE SCROLL LEVEL /////////////////
+    var textContentWrapper = document.getElementsByClassName('text-content-wrapper')[0];
+    var moduleName = document.getElementById('module-name');
+    textContentWrapper.addEventListener('scroll', function scrollShadow() {
+        if ((textContentWrapper.scrollHeight > textContentWrapper.clientHeight) && (textContentWrapper.scrollTop > 5) && (tabletMode == false)) {
+            moduleName.style.boxShadow = "0 4px 4px -4px grey"
+        } else {
+            moduleName.style.boxShadow = "none";
+        }
+    });
+        
+    /////////////////////////////////////// DEFINITION ONHOVER /////////////////////////////////////////////
+
+    {{!-- var definitions = document.querySelectorAll('.definitions strong')
+    if(definitions) {
+        window.onmousemove = function(e) {
+            var x = (e.clientX + 20) + 'px'
+            var y = (e.clientY + 20) + 'px'
+            for (var i=0; i<definitions.length; i++) {
+                definitions[i].style.top = y
+                definitions[i].stype.left = x
+            }
+        }
+    } --}}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

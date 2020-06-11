@@ -1,0 +1,72 @@
+<body id="index" class="common-structure">
+    <header>
+        <div id="menu-title-div">
+            <button id="returnToMenu" class="back" onclick="returnToMenu();">
+                <img src="images/buttons/menu-heart-grey.svg" alt="Click to return to home">
+            </button>
+            <div>
+                <h1>Child and Adolescent Health</h1>
+                <h3>Cardiac Cases</h3>
+            </div>
+        </div>
+        <img id="case-doctor" src="images/illustrations/landing-page.svg">
+    </header>
+
+    <section id="index-menu" class="grid" >
+        <article onclick="moduleStart('ben', 'Ben');"><a>Start</a>
+            <h4 id="ben">Ben 
+            </h4>
+            <img src="images/photos/ben-profile-recrop.png" alt="Ben">
+        </article>
+        <article onclick="moduleStart('ayanthi', 'Ayanthi');"><a >Start</a>
+            <h4 id="ayanthi">Ayanthi 
+            </h4>
+            <img src="images/photos/ayanthi-profile-recrop.png" alt="Ayanthi">
+        </article>
+        <article onclick="moduleStart('amin', 'Amin');"><a >Start</a>
+            <h4  id="amin">Amin 
+            </h4>
+            <img src="images/photos/amin-profile-recrop.png" alt="Amin">
+        </article>
+        <article onclick="moduleStart('lucy', 'Lucy');"><a >Start</a>
+            <h4 id="lucy">Lucy 
+            </h4>
+            <img src="images/photos/lucy-profile-recrop.png" alt="Lucy">
+        </article>
+    </section>
+    
+    <section id="start-module" class="none">
+        <img>
+        <h4></h4>
+        <span class="weak"></span>
+        <a>Explore</a>
+    </section>
+    <button id="thank-you-modal-button" onclick="tyModal()">Special Thanks</button>
+    <aside id="modal-blackout" class="no-modal">
+        <article id="thank-you-modal" class="no-modal">
+            <h1>Special Thanks</h1>
+            <p>This project was funded by a 2019 University of Sydney Education Innovation Grant,
+            University of Sydney Children’s Hospital at Westmead Clinical School, University of
+            Sydney School of Rural Health and University Centre for Rural Health, Lismore.
+            </p>
+            <br>
+            <p>
+            Thanks to Andrew Nguyen Le, Claire Say and Viswajith Unnikrishnan, from the University
+            of Sydney School of Design, for designing and building this elearning module with the
+            support of their supervisors, Liam Bray and Erez Nusem.
+            </p>
+            <br>
+            <p>
+            Thanks to the project team: Karen Scott, Jack Luxford, Jennifer Anderson, Jacqueline
+            Askwith, Elizabeth Cayanan, Tegan Cheng, Jillian Clarke, Sarah Croker, Kate Edwards,
+            Hasantha Gunasekera, Jonathan Mervis, and Alix Thoeming for bringing the project to
+            fruition.
+            </p>
+            <img src="images/usyd-logo.png" alt="The University of Sydney">
+            <button id="close-button" onclick="tyModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+            </button>
+        </article>
+    </aside>
+</body>
+<script src="js/index.js"></script>
