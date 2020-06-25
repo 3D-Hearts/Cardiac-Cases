@@ -451,6 +451,15 @@ section#main-workshop-menu-grid {
     margin-right: 1em;
 }
 
+#copyright-notice {
+    position: absolute;
+    font-size: 12px;
+    color: #bdbdbd;
+    vertical-align: bottom;
+    bottom: 17px;
+    left: calc(7vw - 2em);
+}
+
 #thank-you-modal {
     position: absolute;
     font-size: 12px;
@@ -1579,6 +1588,15 @@ label {
 
     #index-menu article img {
         display: none;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    #copyright-notice {
+        position: inherit;
+        display: inline-block;  
     }
 
     #start-module {
