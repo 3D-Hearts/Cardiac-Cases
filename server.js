@@ -1,7 +1,7 @@
 const express = require('express');
 const Handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5100;
 const app = express();
 
 //////////// GET STORYBLOK CONTENT //////////////
