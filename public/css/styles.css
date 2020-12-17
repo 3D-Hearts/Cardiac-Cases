@@ -927,6 +927,10 @@ label {
     display: block;
 }
 
+.error-login {
+    margin-bottom: 1em;
+}
+
 .label-login {
     /* margin: auto auto auto 2em; */
     background-color: white;

@@ -19,7 +19,7 @@ var amin = new Object();
 var lucy = new Object();
 
 // To compare login details for authentication
-const users = []
+let users = []
 
 const Storyblok = new StoryblokClient({
     accessToken: "cxBOVdDowPMBH7h41jTGuQtt"
@@ -50,14 +50,6 @@ Storyblok.get('cdn/stories', {
             // ben.name = content.name
 
             // console.log(ben)
-            if (story.name == "login") {
-                users.push({
-                    id: Date.now().toString(),
-                    username: story.content.username,
-                    password: await bcrypt.hash(story.content.password, 10)
-                })
-            }
-
             switch (story.content.name) {
                 case "Ben":
                     ben = story.content
@@ -219,6 +211,21 @@ app.get('/index.html', checkAuthenticated, (req, res) => {
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login')
+    Storyblok.get('cdn/stories', {
+        version: 'published'
+    })
+        .then((response) => {
+            response.data.stories.forEach(async (story) => {
+                if (story.name == "login") {
+                    users = []
+                    users.push({
+                        id: Date.now().toString(),
+                        username: story.content.username,
+                        password: await bcrypt.hash(story.content.password, 10)
+                    })
+                }
+            })
+        })
 })
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
