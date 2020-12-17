@@ -1,0 +1,29 @@
+<body id="index" class="common-structure">
+
+    <form class="form-login" action="/login" method="POST">
+        <div class="div-login" id="menu-title-div">
+            <button id="returnToMenu" class="back">
+                <img src="images/buttons/menu-heart-grey.svg">
+            </button>
+            <div>
+                <h1>Child and Adolescent Health</h1>
+                <h3>Login Page</h3>
+            </div>
+        </div>
+        {{#if messages.error }}
+        <h1>{{ messages.error }}</h1>
+        {{/if}}
+        <div >
+            <label class="label-login" for="username">Username</label>
+            <input class="input-login" type="username" id="username" name="username" required>
+        </div>
+        <div>
+            <label class="label-login" for="password">Password</label>
+            <input class="input-login" type="password" id="password" name='password' required>
+        </div>
+        <button type='submit' class="button-login">
+            LOGIN
+        </button>
+    </form>
+
+</body>
