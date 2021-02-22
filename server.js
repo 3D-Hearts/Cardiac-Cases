@@ -42,10 +42,7 @@ Storyblok.get('cdn/stories', {
             // ben.name = content.name
 
             // console.log(ben)
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of 815764c... test login functionality
             switch (story.content.name) {
                 case "Ben":
                     ben = story.content
@@ -187,38 +184,8 @@ app.get('/index.html', (req, res) => {
     res.redirect('/')
 })
 
-<<<<<<< HEAD
-app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login')
-    Storyblok.get('cdn/stories', {
-        version: 'published'
-    })
-        .then((response) => {
-            response.data.stories.forEach(async (story) => {
-                if (story.name == "login") {
-                    users = []
-                    users.push({
-                        id: Date.now().toString(),
-                        username: story.content.username,
-                        password: await bcrypt.hash(story.content.password, 10)
-                    })
-                }
-            })
-        })
-})
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-}))
-
-
-
-app.get('/pre-workshop-module', checkAuthenticated, (req, res) => {
-=======
 app.get('/pre-workshop-module', (req, res) => {
->>>>>>> parent of 815764c... test login functionality
     res.render('pre-workshop-module', {
         title: "Pre-Workshop Module"
     })
