@@ -13,12 +13,6 @@ var ayanthi = new Object();
 var amin = new Object();
 var lucy = new Object();
 
-<<<<<<< HEAD
-// To compare login details for authentication
-let users = []
-
-=======
->>>>>>> parent of 815764c... test login functionality
 const Storyblok = new StoryblokClient({
     accessToken: "cxBOVdDowPMBH7h41jTGuQtt"
 })
