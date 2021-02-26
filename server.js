@@ -217,7 +217,6 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
         .then((response) => {
             response.data.stories.forEach(async (story) => {
                 if (story.name == "login") {
-                    users = []
                     users.push({
                         id: Date.now().toString(),
                         username: story.content.username,
