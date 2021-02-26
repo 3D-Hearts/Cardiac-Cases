@@ -222,6 +222,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
                         username: story.content.username,
                         password: await bcrypt.hash(story.content.password, 10)
                     })
+                    console.log(users)
                 }
             })
         })
