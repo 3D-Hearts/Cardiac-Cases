@@ -1,17 +1,25 @@
 const express = require('express');
 const Handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5100;
 const app = express();
+const bcrypt = require('bcrypt');
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
 
 //////////// GET STORYBLOK CONTENT //////////////
 
 var StoryblokClient = require('storyblok-js-client')
-// This variable will contain the information to be templated
+// These variables will contain the information to be templated
 var ben = new Object();
 var ayanthi = new Object();
 var amin = new Object();
 var lucy = new Object();
+
+// To compare login details for authentication
+let users = []
 
 const Storyblok = new StoryblokClient({
     accessToken: "cxBOVdDowPMBH7h41jTGuQtt"
@@ -22,7 +30,7 @@ Storyblok.get('cdn/stories', {
 })
     .then((response) => {
 
-        response.data.stories.forEach((story) => {
+        response.data.stories.forEach(async (story) => {
             // // The following commented code is an attempt to dynamically generate sections depending on 
             // // the amount of scheme in Storyblok. I was not able to get it to work so we have to just
             // // stick with the sections already defined in Storyblok for now.
@@ -170,16 +178,34 @@ Handlebars.registerHelper('nameCheck', function(caseName, nameCheck) {
 
 /////////////////////////////////////////////////
 
+// Passport is used for authentication
+const initializePassport = require('./passport-config')
+initializePassport(
+    passport, 
+    username => users.find(user => user.username === username), 
+    id => users.find(user => user.id === id)
+)
+
 
 app.use(express.static(__dirname + '/public'))
+app.use(express.urlencoded({ extended: false }))
+app.use(flash())
+app.use(session({
+    secret: bcrypt.hash(Date.now().toString(), 10).toString(),
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
 
-app.get('/', (req, res) => {
+app.get('/', checkAuthenticated, (req, res) => {
     res.render('index', {
         title: '3D Hearts Workshop'
     })
 })
 
-app.get('/index.html', (req, res) => {
+app.get('/index.html', checkAuthenticated, (req, res) => {
     res.redirect('/')
 })
 
@@ -215,7 +241,7 @@ app.get('/pre-workshop-module', checkAuthenticated, (req, res) => {
     })
 })
 
-app.get('/:heartId-:stage.html', (req, res) => {
+app.get('/:heartId-:stage.html', checkAuthenticated, (req, res) => {
     // These variables used to call the .hbs file according to the URL
     var heartId = req.params.heartId
     var stage = req.params.stage
@@ -225,7 +251,6 @@ app.get('/:heartId-:stage.html', (req, res) => {
 
         // Ben
         case "17040":
-            console.log(heartId)
             res.render(`${stage}`, {
                 title: `Ben, a 3-month old boy`,
                 name: ben.name,
@@ -243,7 +268,6 @@ app.get('/:heartId-:stage.html', (req, res) => {
 
         // Ayanthi
         case "19401":
-            console.log(heartId)
             res.render(`${stage}`, {
                 title: `Ayanthi, a 1-month old girl`,
                 name: ayanthi.name,
@@ -261,7 +285,6 @@ app.get('/:heartId-:stage.html', (req, res) => {
 
         // Amin
         case "16751":
-            console.log(heartId)
             res.render(`${stage}`, {
                 title: `Amin, a 6-month old boy`,
                 name: amin.name,
@@ -279,7 +302,6 @@ app.get('/:heartId-:stage.html', (req, res) => {
 
         // Lucy
         case "19863":
-            console.log(heartId)
             res.render(`${stage}`, {
                 title: `Lucy, a 7 day old neonate`,
                 name: lucy.name,
@@ -301,12 +323,6 @@ app.get('/:heartId-:stage.html', (req, res) => {
     }
 })
 
-app.get
-
-app.get('/about', (req, res) => {
-    res.render('about')
-})
-
 app.use(function (req, res) {
     res.status(404).render('404')
 })
@@ -320,6 +336,22 @@ app.engine('.hbs', exphbs({
 
 app.set('view engine', '.hbs')
 app.set('views', 'views')
+
+
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+
+    return res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
 
 
 app.listen(PORT, function () {

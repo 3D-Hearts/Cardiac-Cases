@@ -896,10 +896,56 @@ input {
     padding: 0;
 }
 
+
 label {
     background-color: #eeeeee;
     padding: 0.3em 1em;
     font-size: 16px;
+}
+
+
+
+/* LOGIN FORM */
+
+.form-login {
+    width: 50%;
+    margin: auto;
+    padding-top: 5em;
+}
+
+.div-login {
+    margin-bottom: 5em;
+}
+
+.input-login {
+    width: 90%;
+    padding: 1em;
+    margin-bottom: 2em;
+    visibility: visible;
+    border: 0px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+    display: block;
+}
+
+.error-login {
+    margin-bottom: 1em;
+}
+
+.label-login {
+    /* margin: auto auto auto 2em; */
+    background-color: white;
+    padding: 0;
+    font-weight: bold;
+}
+
+.button-login {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-size: 1em;
+    width: 50%;
+    border-top: 10px solid var(--module-colour);
+    background-color: white;
+    height: 3em;    
 }
 
 /* FANCY TOGGLES */
@@ -1265,6 +1311,10 @@ label {
 
     #collapse-button {
         left: 33.5vw;
+    }
+
+    .form-login {
+        width: 80%;
     }
 
 }
